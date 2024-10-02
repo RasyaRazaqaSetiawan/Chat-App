@@ -1,13 +1,14 @@
 @include('Chatify::layouts.headLinks')
 <div class="messenger">
     {{-- ----------------------Users/Groups lists side---------------------- --}}
-    <div class="messenger-listView {{ !!$id ? 'conversation-active' : '' }}">
+    <div class="messenger-listView {{ !!$channel_id ? 'conversation-active' : '' }}">
         {{-- Header and search bar --}}
         <div class="m-header">
             <nav>
                 <a href="#"><i class="fas fa-inbox"></i> <span class="messenger-headTitle">MESSAGES</span> </a>
                 {{-- header buttons --}}
                 <nav class="m-header-right">
+                    <a href="#"><i class="fas fa-users group-btn"></i></a>
                     <a href="#"><i class="fas fa-cog settings-btn"></i></a>
                     <a href="#" class="listView-x"><i class="fas fa-times"></i></a>
                 </nav>
@@ -63,7 +64,7 @@
                 {{-- header buttons --}}
                 <nav class="m-header-right">
                     <a href="#" class="add-to-favorite"><i class="fas fa-star"></i></a>
-                    <a href="/"><i class="fas fa-home"></i></a>
+                    <a href="{{route('dashboard')}}"><i class="fas fa-home"></i></a>
                     <a href="#" class="show-infoSide"><i class="fas fa-info-circle"></i></a>
                 </nav>
             </nav>
@@ -97,14 +98,13 @@
         {{-- Send Message Form --}}
         @include('Chatify::layouts.sendForm')
     </div>
+
     {{-- ---------------------- Info side ---------------------- --}}
     <div class="messenger-infoView app-scroll">
-        {{-- nav actions --}}
         <nav>
-            <p>User Details</p>
+            <p></p>
             <a href="#"><i class="fas fa-times"></i></a>
         </nav>
-        {!! view('Chatify::layouts.info')->render() !!}
     </div>
 </div>
 

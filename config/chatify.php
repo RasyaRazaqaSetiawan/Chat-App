@@ -22,7 +22,6 @@ return [
     |-------------------------------------
     */
     'routes' => [
-        'custom' => env('CHATIFY_CUSTOM_ROUTES', false),
         'prefix' => env('CHATIFY_ROUTES_PREFIX', 'chatify'),
         'middleware' => env('CHATIFY_ROUTES_MIDDLEWARE', ['web','auth']),
         'namespace' => env('CHATIFY_ROUTES_NAMESPACE', 'Chatify\Http\Controllers'),
@@ -65,6 +64,16 @@ return [
 
     /*
     |-------------------------------------
+    | Channel Avatar
+    |-------------------------------------
+    */
+    'channel_avatar' => [
+        'folder' => 'channels-avatar',
+        'default' => 'avatar.png',
+    ],
+
+    /*
+    |-------------------------------------
     | Gravatar
     |
     | imageset property options:
@@ -86,7 +95,7 @@ return [
         'folder' => 'attachments',
         'download_route_name' => 'attachments.download',
         'allowed_images' => (array) ['png','jpg','jpeg','gif'],
-        'allowed_files' => (array) ['zip','rar','txt'],
+        'allowed_files' => (array) ['pdf', 'docx', 'xlsx','zip','rar','txt'],
         'max_upload_size' => env('CHATIFY_MAX_FILE_SIZE', 150), // MB
     ],
 
